@@ -1,0 +1,26 @@
+
+cdef extern from "FF_FaceFrontalization.cpp":
+    pass
+
+cdef extern from "FF_MeshSrc2Ref.cpp":
+    pass
+
+cdef extern from "FaceFrontalization.h":
+    cdef cppclass FaceFrontalization:
+        FaceFrontalization(double* mask, double* tri_ind, int, int, int,
+						double* all_vertex_src, double* all_vertex_ref, int, int,
+						double* all_tri, int, int,  int,
+						double* valid_tri_half, int, int,
+						double* sym_tri_list, int) except +
+
+        FaceFrontalization(double* mask, double* tri_ind, int, int, int,
+						double* all_vertex_src, double* all_vertex_ref, int, int,
+						double* all_tri, int, int,  int, int,
+						double* valid_tri_half, int, int,
+						double* sym_list, int) except +
+
+        FaceFrontalization(double* img, int, int, int, double* corres_map) except +
+
+        void frontalization_mapping(double * corres_map, double * corre_map_sym)
+        void frontalization_mapping_big_tri(double * corres_map, double * corre_map_sym)
+        void frontalization_filling(double * result)
