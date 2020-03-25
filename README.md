@@ -1,2 +1,4 @@
 # face_pose_augment
-face pose transfer,
+using this project, you can generate faces with different pose with just one 2d face image.
+
+file structure
